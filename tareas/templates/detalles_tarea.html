@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Tareas Pendientes</h1>
+
+
+
+<hi>{{tarea.titulo}}</hi>
+
+{{error}}
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>
+        Actualizar
+    </button>
+
+</form>
+
+<form action="{% url 'tarea_completa' tarea.id %}" method="POST">
+    {% csrf_token %}
+    <button>
+        Completada
+    </button>    
+
+</form>
+
+<form action="{% url 'borrar_tarea' tarea.id %}" method="POST">
+    {% csrf_token %}
+    <button>
+        Borrar
+    </button>    
+
+</form>
+
+{% endblock %}

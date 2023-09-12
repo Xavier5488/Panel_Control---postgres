@@ -1,0 +1,233 @@
+:root {
+    --primary: #0b254b;
+    --light: #ffffff;
+    --light-blue: #f5f6fa;
+    --grey: #eff2f7;
+}
+
+.bg-ligth {
+    background-color: var(--light) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary) !important;
+    border: 0;
+}
+
+#sidebar-container {
+    min-height: 100vh;
+    margin-left: -18rem;
+    transition: margin .25s ease-in-out;
+}
+
+#sidebar-container .logo {
+    padding: .875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-container .menu {
+    width: 18rem;
+}
+
+.btn-search {
+    right: 5px;
+}
+
+.avatar {
+    max-width: 35px;
+}
+
+.avatar-logo {
+    max-width: 50px;
+}
+
+#content-wrapper.toggled #sidebar-container {
+    margin-left: 0;
+}
+
+@media (min-width: 768px) {
+    #sidebar-container {
+        margin-left: 0;
+    }
+    #page-container {
+        min-width: 0;
+        width: 100%;
+    }
+    #contente-wrapper.toggled #sidebar-container {
+        margin-left: -18rem;
+    }
+}
+
+
+#menu {
+    padding: 0;
+    margin: 0;
+    border: 0; 
+}
+ 
+#menu ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0; 
+}
+ 
+#menu ul {
+    position: relative;
+    z-index: 597;
+    float: left; 
+}
+ 
+#menu ul li {
+    float: left;
+    min-height: 1px;
+    line-height: 1rem;
+    vertical-align: middle; 
+}
+ 
+#menu ul li.hover,
+#menu ul li:hover {
+    position: relative;
+    z-index: 599;
+    cursor: default; 
+}
+ 
+#menu ul ul {
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 598;
+    width: 18rem;
+}
+ 
+#menu ul ul li {
+    float: none; 
+}
+ 
+#menu ul li:hover > ul {
+    visibility: visible; 
+}
+ 
+#menu ul ul {
+    top: 0;
+    left: 100%; 
+}
+ 
+#menu ul li {
+    float: none; 
+}
+ 
+ 
+#menu span, #menu a {
+    display: inline-block;
+    text-decoration: none; 
+}
+ 
+#menu:after, #menu ul:after {
+    content: '';
+    display: block;
+    clear: both; 
+}
+ 
+#menu ul, #menu li {
+    width: 18rem;
+}
+#menu li {
+    background: #dddddd;
+}
+#menu li:hover {
+    background: #f6f6f6; 
+}
+#menu a {
+    color: #666666;
+    line-height: 160%;
+    padding: 11px 28px 11px 28px;
+    width: 18rem;
+}
+#menu ul ul li {
+    background: #f6f6f6; 
+}
+#menu ul ul li:hover {
+    background: #dddddd; 
+}
+#menu ul ul li:hover a {
+    color: #666666; 
+}
+#menu ul ul li ul li {
+    background: #dddddd; 
+}
+#menu ul ul li ul li:hover {
+    background: #b7b7b7; 
+}
+#menu .has-sub {
+    position: relative; 
+}
+ 
+#menu .has-sub:after, #menu .has-sub > ul > .has-sub:hover:after {
+    content: '';
+    display: block;
+    width: 18rem;
+    height: 9px;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    margin-top: -5px;
+}
+ 
+#menu .fa-angle-right {
+    float: right;
+}
+
+
+
+.highlighted {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+.highcharts-figure,
+.highcharts-data-table table {
+    min-width: 310px;
+    max-width: 800px;
+    margin: 1em auto;
+}
+
+#container {
+    height: 400px;
+}
+
+.highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #ebebeb;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.highcharts-data-table th {
+    font-weight: 600;
+    padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+    padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}

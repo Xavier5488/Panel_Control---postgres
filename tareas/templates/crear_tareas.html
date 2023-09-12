@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Crear Tarea</h1>
+
+    {{error}}
+
+    <form action="/tareas_vista/crear_tareas/" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <button>
+            Grabar
+        </button>
+    
+    </form>
+
+{% endblock %}

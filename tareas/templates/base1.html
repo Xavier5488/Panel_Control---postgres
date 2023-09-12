@@ -1,0 +1,302 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control</title>
+
+    <!-- Bootstrap Css-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <!-- Hoja de Estilos Personalizados-->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
+
+    <script src="{% static 'js/date.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+
+
+</head>
+
+<body onload="startTime()">
+
+    <!------------------ CONTAINER -------------------------->
+
+    <div class="container-personal">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="{% static 'img/logo.png' %}" class="img-fluid rounded-circle avatar mr-2">
+                    <h2>GES<span class="danger">TOR</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+
+            <!------------------ ASIDE -------------------------->
+
+            <div class="sidebar-personal">
+                <ul>
+                    <a href="#">
+                        <span class="material-icons-sharp">grid_view</span>
+                        <h3>Dashboard</h3>
+                    </a>
+                    <li class="sub-menu-personal">
+                        <a href="#">
+                            <span class="material-icons-sharp">person_outline</span>
+                            <h3>Personal</h3>
+                        </a>
+                        <ul>
+                            <li><a href="#">Submenú 1</a></li>
+                            <li><a href="#">Este es un texto demasiado largo 2</a></li>
+                            <li><a href="#">Submenú 3</a></li>
+                            <li><a href="#">Submenú 4</a></li>
+                        </ul>
+                    </li>
+                    <a href="#">
+                        <span class="material-icons-sharp">receipt_long</span>
+                        <h3>Orders</h3>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons-sharp">insights</span>
+                        <h3>Analitycs</h3>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons-sharp">mail_outline</span>
+                        <h3>Messages</h3>
+                        <span class="message-count">26</span>
+                    </a>
+                    <li class="sub-menu-personal">
+                        <a href="#">
+                            <span class="material-icons-sharp">inventory</span>
+                            <h3>Productos</h3>
+                        </a>
+                        <ul>
+                            <li><a href="#">Submenú 1</a></li>
+                            <li><a href="#">Esto es un ejemplo largo 2</a></li>
+                            <li><a href="#">Submenú 3</a></li>
+                            <li><a href="#">Submenú 4</a></li>
+                        </ul>
+                    </li>
+                    <a href="#">
+                        <span class="material-icons-sharp">report_gmailerrorred</span>
+                        <h3>Reports</h3>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons-sharp">settings</span>
+                        <h3>Settings</h3>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons-sharp">add</span>
+                        <h3>Add Producto</h3>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons-sharp">logout</span>
+                        <h3>Logout</h3>
+                    </a>
+                </ul>
+
+
+            </div>
+
+        </aside>
+        <!------------------END OF ASIDE -------------------------->
+
+        
+
+        <div id="menu-personal">
+            <div class="topnav" id="myTopnav">
+                <a href="#home" class="active">Home</a>
+                <a href="#news">News</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </div>
+            <ul>
+                <li class="nivel1"><a href="#" class="nivel1">Menú 1</a>
+                    <ul class="nivel2">
+                        <li><a href="#">Menú 1.1</a></li>
+                        <li><a href="#">Menú 1.2</a></li>
+                    </ul>
+                </li>
+                <li class="nivel1"><a href="#" class="nivel1">Menú 2</a>
+                    <ul class="nivel2">
+                        <li><a href="#">Menú 2.1</a></li>
+                        <li><a href="#">Menú 2.2</a></li>
+                        <li class="nivel2"><a class="nivel2" href="#">Menú 2.3</a>
+                            <ul class="nivel3">
+                                <li><a class="primera" href="#">Menú 2.3.1</a></li>
+                                <li><a href="#">Menú 2.3.2</a></li>
+                                <li><a href="#">Menú 2.3.3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Menú 2.4</a></li>
+                        <li><a href="#">Menú 2.5</a></li>
+                    </ul>
+                </li>
+                <li class="nivel1"><a href="#" class="nivel1">Menú 3</a>
+                    <ul class="nivel2">
+                        <li><a href="#">Menú 3.1</a></li>
+                        <li><a href="#">Menú 3.2</a></li>
+                        <li><a href="#">Menú 3.3</a></li>
+                    </ul>
+                </li>
+                {% if user.is_authenticated %}
+                <a id="logo-personal">
+                    <img src="{% static 'img/logo.png' %}" class="img-fluid rounded-circle avatar mr-2">
+                </a>
+                <li id="username-personal"><a href="#">{{user.username}}</a>
+                    <ul class="nivel2">
+                        <a href="#">Mi perfil</a>
+                        <a href="#">Configuración</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="/cerrar_sesion">Cerrar Sesión</a>
+                    </ul>
+                </li>
+                <div class="theme-toggler-personal">
+                    <span class="material-icons-sharp active">light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                </div>
+                <a id="clock"></a>
+
+                {% else %}
+                <div>
+                    <a href="/registro" class="registro"> Registro</a>
+                    <a href="/iniciar_sesion" class="registro"> Iniciar Sesión</a>
+                </div>
+
+                <div class="theme-toggler-personal">
+                    <span class="material-icons-sharp active">light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                </div>
+                <a id="clock"></a>               
+
+                {% endif %}
+            </ul>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <!------------------ MAIN -------------------------->
+        <main>
+            <h1>Dashboard</h1>
+
+
+            <!------------------  TABLA  ------------------------->
+
+            <div class="recent-orders">
+                <h2>Recent Orders</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Product Number</th>
+                            <th>Payment</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>85631</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>85631</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>85631</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>85631</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>85631</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>85631</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!------------------ END  TABLA  ------------------------->
+                <a href="#">Show All</a>
+
+            </div>
+
+        </main>
+
+        <!------------------ END MAIN -------------------------->
+
+        <!---------------- MENU DERECHA ---------------->
+        <div class="right">
+
+            <!---------------- MENU TOP ---------------->
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-icons-sharp active">light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                </div>
+            </div>
+            <!---------------- END MENU TOP ---------------->
+
+
+
+        </div>
+        <!---------------- END MENU DERECHA ---------------->
+
+
+    </div>
+
+    <!------------------ END CONTAINER -------------------------->
+
+    <script src="{% static 'js/base.js' %}"></script>
+
+</body>
+
+</html>

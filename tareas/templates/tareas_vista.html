@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Tareas</h1>
+
+{% csrf_token %}
+
+<ul>
+
+    {% for tarea1 in tarea %}
+    <li>
+        <a href="{% url 'detalles_tarea' tarea1.id %}">
+            {% if tarea1.importante %}
+            <strong>{{tarea1.titulo}}</strong>
+            {% else %}
+            {{tarea1.titulo}}
+            {% endif %}
+            <p>{{tarea1.descripcion}}</p>
+            <p>{{tarea1.user.username}}</p>
+            <p>{{tarea1.fechacompleto|date:'M j Y : h:i:s'}}</p>
+        </a>
+    </li>
+    {% endfor %}
+
+</ul>
+
+{% endblock %}

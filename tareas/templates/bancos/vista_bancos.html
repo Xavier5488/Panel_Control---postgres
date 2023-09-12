@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{%load static %}
+{% block titulo %} Lista de libros {% endblock %}
+
+{% block content %}
+
+<div id="container"></div>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const bancos = JSON.parse('{{ bancos|safe }}');
+        const data_series = JSON.parse('{{ data_series|safe }}');
+
+        Highcharts.chart('container', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Valores por banco'
+            },
+            xAxis: {
+                type: 'datetime',
+                labels: {
+                    formatter: function () {
+                        return Highcharts.dateFormat('%e %b %Y', this.value);
+                    }
+                },
+                title: {
+                    text: 'Fecha'
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Valor Millones'
+                }
+            },
+            series: data_series,
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + Highcharts.dateFormat('%e %b %Y', this.x) + '</b><br/>' +
+                        'Valor: ' + this.y + '<br/>' +
+                        'Banco: ' + this.series.name;
+                }
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
